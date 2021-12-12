@@ -20,6 +20,7 @@
 
 #include "timers.h"
 #include "telemetry.h"
+#include "data.h"
 
 typedef enum {
 	radio_msg_reboot       = 0x12,
@@ -31,7 +32,8 @@ typedef enum {
 	radio_msg_telem        = 0x18,
 	radio_msg_get_callsign = 0x19,
 	radio_msg_set_callsign = 0x1a,
-	radio_msg_callsign     = 0x1b
+	radio_msg_callsign     = 0x1b,
+	radio_msg_send_data    = 0x55
 } radio_msg_no;
 
 #define RANGING_ACK_TYPE 1
@@ -51,6 +53,7 @@ typedef union {
 	radio_ranging_ack_t ranging_ack;
 	reboot_postpone_t reboot_postpone;
 	telemetry_t telemetry;
+	experiment_data_t experiment_data;
 	uint8_t data[1];
 } msg_data_t;
 

@@ -14,6 +14,10 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+#include <stdint.h>
+#include "commands.h"
+#include "stringx.h"
+
 #ifndef _BOARD_H
 #define _BOARD_H
 
@@ -36,6 +40,13 @@ void board_init(void);
 #define BOARD_HAS_LED 1
 void board_led_set(__bit led_on);
 
+//#define CUSTOM_COMMANDS 1
+//uint8_t custom_commands(const __xdata command_t *cmd, uint8_t len, __xdata command_t *reply);
+
+typedef enum {
+	custom_msg_string = 0x55
+} custom_msg_no;
+
 // These are macros to save space in the bootloader
 // Enable bias to on-board 1W RF power amp (RF6504)
 #define board_pre_tx() P2_0 = 1;
@@ -43,3 +54,5 @@ void board_led_set(__bit led_on);
 #define board_pre_rx() P2_0 = 0;
 
 #endif
+
+

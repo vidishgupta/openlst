@@ -40,6 +40,7 @@ BOOTLOADER_WRITE_PAGE = '\x02'
 BOOTLOADER_ACK = '\x01'
 BOOTLOADER_NACK = '\x0f'
 ASCII = '\x11'
+DATA = '\x55'
 AES_KEY_SIZE = 16
 
 
@@ -303,6 +304,7 @@ COMMANDS = [
             UInt32Argument("custom0"),
             UInt32Argument("custom1")),
     Command("ascii", ASCII, StringArgument("text")),
+    Command("data", DATA, UInt32Argument("arg1"), UInt32Argument("arg2"), UInt32Argument("arg3"))
 ]
 
 

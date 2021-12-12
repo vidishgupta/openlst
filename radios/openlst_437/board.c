@@ -16,6 +16,8 @@
 
 #include <cc1110.h>
 #include "cc1110_regs.h"
+#include "board.h"
+
 
 void board_init(void) {
 	// LED0 setup - just turn it on
@@ -48,3 +50,16 @@ void board_init(void) {
 void board_led_set(__bit led_on) {
   P0_7 = led_on;
 }
+
+//uint8_t custom_commands(const __xdata command_t *cmd, uint8_t len, __xdata command_t *reply) {
+//	uint8_t extra;
+//	extra = 0;
+//	switch (cmd->header.command) {
+//		case custom_msg_string :
+//			reply->header.command = custom_msg_string;
+//			reply->data[sizeof(reply->data)-2] = 'a';
+//			extra += 1;
+//			break;
+//	}
+//	return sizeof(reply->header) + extra;
+//}
